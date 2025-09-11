@@ -1,8 +1,12 @@
+# CR-DARTS - Channel Redistribution-based Differentiable Architecture Search 
+
+![License](https://img.shields.io/badge/license-MIT-green) ![Status](https://img.shields.io/badge/status-Coming%20Soon-blue)
+
+---
+
 **Official PyTorch implementation of the paper:**  
 **_"CR-DARTS: Channel Redistribution-based Differentiable Architecture Search"_**  
 Submitted to *[Target Conference/Journal]*, 2025.
-
-![License](https://img.shields.io/badge/license-MIT-green) ![Status](https://img.shields.io/badge/status-Coming%20Soon-blue)
 
 ---
 
