@@ -6,98 +6,64 @@
 
 **Official PyTorch implementation of the paper:**  
 **_"CR-DARTS: Channel Redistribution-based Differentiable Architecture Search"_**  
-Submitted to *[Target Conference/Journal]*, 2025.
+Accepted for Publication in *IEEE Access, 2025*.
 
 ---
 
 ## 🚀 Overview
 
-**CR-DARTS** automates neural architecture design but suffers from computational overhead and an architecture optimization gap between search and evaluation networks.
+**CR-DARTS** addresses the architecture-optimization gap between search and evaluation networks in the state-of-the-art DARTS framework.
 We propose CR-DARTS, a multi-stage search framework with an adaptive channel redistribution strategy. The approach:
 - Compresses shared input features among candidate operations.
 - Restores network dimensions via channel-wise feature concatenation.
 - Progressively eliminates underperforming operations.
-- Redistributes channels to relevant operations for improved feature extraction.
+- Redistributes channels to surviving candidate operations for improved feature extraction.
+We have evaluated it on two computer vision applications:
+- Image Classification
+  - CIFAR-10 & CIFAR-100 dataset - https://docs.pytorch.org/vision/0.9/datasets.html#cifar
+  - Face Blurred ImageNet 2017 dataset - https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/?h=dataset#imagenet
+- Fire Segmentation
+  - Fire Luminosity Airborne-based Machine learning Evaluation (FLAME) - [https://dx.doi.org/10.21227/qad6-r683](https://ieee-dataport.org//open-access/flame-dataset-aerial-imagery-pile-burn-detection-using-drones-uavs))
+  - Fire Dataset - https://github.com/hayatkhan8660-maker/Fire_Seg_Dataset?tab=readme-ov-file 
 
 Key results:
-- Up to 1.5× faster inference in image classification.
-- A competitive fire segmentation network outperforming state-of-the-art methods while preserving computational efficiency.
-
-Although developed primarily for fire segmentation, **FireSegUNet** generalizes well to other real-time segmentation tasks across domains like environmental monitoring, IoT, TinyML, and mobile vision applications.
----
-
-## 🛠️ Features
-
-- ✅ PyTorch implementation with modular codebase
-- ✅ Pretrained models on FLAME, BoWFire, and Fire datasets
-- ✅ Detailed training and evaluation scripts
-- ✅ Deployment scripts for embedded platforms (A100, Cortex A76, Adreno 630/640)
-- ✅ Easy-to-customize for other segmentation tasks
+- Reduce computational resources requirement by up to 4.3× while addressing the architecture optimization gap.
+- Discovered architecture achieves up to 25.3% reduction in computational complexity and 50.6× faster inference in image classification.
+- A competitive fire segmentation network outperforms state-of-the-art methods while preserving computational efficiency.
 
 ---
-
-## 📖 Paper
-
-> Ali Hassan, Mårten Sjöström, Karen Egiazarian, Tingting Zhang, Johan Johansson, Stefan Schulte  
-> _FireSegUNet: Exploring Computationally Efficient Real-Time Fire Segmentation Network for UAVs_, 2025.
-
-📄 [Paper Link (Coming Soon)](#)
-
----
-
-## 📦 Code Release Timeline
-
-| Stage | Status |
-|:-----|:------|
-| Code Cleaning | ✅ Completed |
-| Paper Submission | ✅ Accepted |
-| Repository Public Release | ⏳ Coming Soon upon publication |
-
----
-
 ## 📂 Project Structure
 
 ```bash
-🔹 firesegunet/
-│   🔹 models/           # FireSegUNet Architecture Components
-│   🔹 datasets/         # Data loading utilities (FLAME, BoWFire, Fire)
-│   🔹 train.py          # Training script
-│   🔹 eval.py           # Evaluation script
-│   🔹 deploy/           # Deployment scripts for edge devices
-│   🔹 utils/            # Helper functions (metrics, logging, etc.)
-🔹 configs/              # YAML config files for experiments
-🔹 requirements.txt      # Python dependencies
-🔹 README.md             # You are here 🚀
+🔹 CR-DARTS/
+│   🔹 outputs/           # FireSegUNet Architecture Components
+│         🔹 crdarts_cifar10_weights.pt    # Weights of the trained CR-DARTS (last epoch) architecture on CIFAR-10 dataset
+│         🔹 crdarts_cifar100_weights.pt   # Weights of the trained CR-DARTS (last epoch) architecture on CIFAR-100 dataset
+│   🔹 requirements.txt  # Python dependencies
+│   🔹 train_search_cifar.py, train_cifar.py, test_cifar.py      # Related to CIFAR Dataset
+│   🔹 train_search_imagenet.py, train_imagenet.py               # Related to ImageNet Dataset
+
 ```
 
----
-
-## 🔥 Quick Start
+## Start
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/firesegunet.git
-cd firesegunet
+git clone https://github.com/Realistic3D-MIUN/CR-DARTS.git
+cd CR-DARTS
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Train FireSegUNet on FLAME dataset
-python train.py --config configs/firesegunet_flame.yaml
+# Search on CIFAR dataset
+python train_search_cifar.py
+
+# Train CR-DARTS on CIFAR dataset
+python train_cifar.py
 
 # Evaluate pretrained model
-python eval.py --weights checkpoints/firesegunet_best.pth
+python test_cifar.py
 ```
-
----
-
-## 📊 Benchmarks
-
-| Dataset | Mean IoU (%) | F1 Score (%) | Parameters (M) | Memory Reduction |
-|:--------|:-------------|:-------------|:---------------|:-----------------|
-| FLAME [5] | 85.25 | 92.04 | 1.28M | -81% |
-
-Full benchmarking details available in [paper](#) 📄.
 
 ---
 
@@ -113,14 +79,13 @@ We thank NAISS Sweden for computational resources.
 If you use CR-DARTS or our code, please cite:
 
 ```bibtex
-@article{hassan2025firesegunet,
-  title={CR-DARTS: CR-DARTS: Channel Redistribution-based Differentiable Architecture Search},
-  author={Hassan, Ali and Sj{"o}str{"o}m, M{å}rten and Egiazarian, Karen and Zhang, Tingting},
-  journal={[Target Journal/Conference]},
+@article{hassan2025crdarts,
+  title={CR-DARTS: Channel Redistribution-based Differentiable Architecture Search},
+  author={Hassan, Ali and Zhang, Tingting and Egiazarian, Karen and Sj{"o}str{"o}m, M{å}rten},
+  journal={IEEE Access},
   year={2025}
 }
 ```
 
 ---
 
-## 🔥 Stay tuned for the official release!
