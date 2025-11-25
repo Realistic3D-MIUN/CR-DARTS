@@ -64,12 +64,14 @@ To evaluate the proposed architecture on the CIFAR dataset by loading the weight
 # Evaluate pretrained model
 python test_cifar.py
 ```
-Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the ALVIS supercomputer/cluster (https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
+
+---
+ Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the ALVIS supercomputer/cluster (https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
 If interested, you can also consider our other recently published paper "REDARTS" in IEEE Transactions. To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
 ---
 
-
 ### Searching for the evaluation network using the proposed CR-DARTS framework
+
 To search for the evaluation architecture, select the file you want to use based on the dataset.
 For example, if you want to search on the CIFAR dataset, use the file "train_cifar.py".
 Moreover, if you want to search on the CIFAR-100 dataset, set the argument "cifar100" to False in the "train_cifar.py" file.
