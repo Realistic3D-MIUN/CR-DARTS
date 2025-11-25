@@ -87,7 +87,7 @@ def main():
         train_data = dset.CIFAR10(root=args.tmp_data_dir, train=True, download=True, transform=train_transform)
 
     num_train = len(train_data)
-    num_train = 100
+    # num_train = 1000 # Toogle for debugging and finalizing the source code
     indices = list(range(num_train))
     split = int(np.floor(args.train_portion * num_train))
 
