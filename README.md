@@ -45,8 +45,9 @@ Key results:
 
 ```
 
-## Start
+## Using the Source Code
 
+### Setup the repository
 ```bash
 # Clone the repository
 git clone https://github.com/Realistic3D-MIUN/CR-DARTS.git
@@ -54,38 +55,86 @@ cd CR-DARTS
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
-# Search on CIFAR dataset
-python train_search_cifar.py
-
-# Train CR-DARTS on CIFAR dataset
-python train_cifar.py
-
+### Evaluating the proposed CR-DARTS final architecture
+To evaluate the proposed architecture on the CIFAR dataset by loading the weights of the trained architecture, just set the number of classes on "Line # 39" of the "test_cifar.py" (i.e, CIFAR_CLASSES = 100) and then run the following prompt:
+```bash
 # Evaluate pretrained model
 python test_cifar.py
 ```
+Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the ALVIS supercomputer/cluster (https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
 
+If interested, you can also consider our other recently published paper:
+```bibtex
+@article{hassanredarts,
+  author={Hassan, Ali and Sjöström, Mårten and Zhang, Tingting and Egiazarian, Karen},
+  journal={IEEE Transactions on Emerging Topics in Computational Intelligence}, 
+  title={REDARTS: Regressive Differentiable Neural Architecture Search for Exploring Optimal Light Field Disparity Estimation Network}, 
+  year={2025},
+  pages={1-12},
+  doi={10.1109/TETCI.2025.3592281}}
+```
+
+To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
+```bash
+REDARTS = Genotype(
+    normal=[('skip_connect', 0), ('sep_conv_3x3', 1), ('skip_connect', 0), ('sep_conv_3x3', 1), ('skip_connect', 1),
+            ('sep_conv_5x5', 3), ('skip_connect', 1), ('sep_conv_3x3', 4)], normal_concat=range(2, 6),
+    reduce=[('avg_pool_3x3', 0), ('avg_pool_3x3', 1), ('sep_conv_3x3', 1), ('skip_connect', 2), ('skip_connect', 2),
+            ('skip_connect', 3), ('sep_conv_3x3', 3), ('dil_conv_5x5', 4)], reduce_concat=range(2, 6))
+```
 ---
+
+
+### Searching for the evaluation network using the proposed CR-DARTS framework
+To search for the evaluation architecture, select the file you want to use based on the dataset.
+For example, if you want to search on the CIFAR dataset, use the file "train_cifar.py".
+Moreover, if you want to search on the CIFAR-100 dataset, set the argument "cifar100" to False in the "train_cifar.py" file.
+After this, run the following command:
+```bash
+# Search on CIFAR dataset
+python train_search_cifar.py
+```
+
+Once an evaluation architecture is identified (at the end of the log file), copy the architecture's Genotype, add a variable name, and paste it at the end of genotypes.py. Following this, set the argument "arch" name to the assigned variable name and run the complete convergence training using:
+```bash
+# Train CR-DARTS on CIFAR dataset
+python train_cifar.py
+```
+---
+
 
 ## 🤝 Acknowledgments
 
-This work was supported by the European Joint Doctoral Programme on Plenoptic Imaging (PLENOPTIMA) and the EU Interreg Aurora project IMMERSE.  
-We thank NAISS Sweden for computational resources.
+This work was supported by the European Joint Doctoral Programme on Plenoptic Imaging (PLENOPTIMA), EU Interreg Aurora project IMMERSE, and MIUN internal funding. We thank NAISS Sweden for computational resources.
 
 ---
 
 ## 📬 Citation
+
+The code is modified and heavily borrowed from P-DARTS: https://github.com/chenxin061/pdarts
+The code they provided is greatly appreciated.
 
 If you use CR-DARTS or our code, please cite:
 
 ```bibtex
 @article{hassan2025crdarts,
   title={CR-DARTS: Channel Redistribution-based Differentiable Architecture Search},
-  author={Hassan, Ali and Zhang, Tingting and Egiazarian, Karen and Sj{"o}str{"o}m, M{å}rten},
+  author={Hassan, Ali and Zhang, Tingting and Egiazarian, Karen and Sjöström, Mårten},
   journal={IEEE Access},
+  pages={1-17},
   year={2025}
 }
 ```
-
----
+Please also cite the P-DARTS code:
+```bibtex
+@inproceedings{chen2019progressive,
+  title={Progressive differentiable architecture search: Bridging the depth gap between search and evaluation},
+  author={Chen, Xin and Xie, Lingxi and Wu, Jun and Tian, Qi},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={1294--1303},
+  year={2019}
+}
+```
 
