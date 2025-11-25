@@ -18,10 +18,11 @@ We propose CR-DARTS, a multi-stage search framework with an adaptive channel red
 - Restores network dimensions via channel-wise feature concatenation.
 - Progressively eliminates underperforming operations.
 - Redistributes channels to surviving candidate operations for improved feature extraction.
+
 We have evaluated it on two computer vision applications:
 - Image Classification
   - CIFAR-10 & CIFAR-100 dataset - https://docs.pytorch.org/vision/0.9/datasets.html#cifar
-  - Face Blurred ImageNet 2017 dataset - https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/?h=dataset#imagenet
+  - Face Blurred ImageNet dataset - https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/?h=dataset#imagenet
 - Fire Segmentation
   - Fire Luminosity Airborne-based Machine learning Evaluation (FLAME) - [https://dx.doi.org/10.21227/qad6-r683](https://ieee-dataport.org//open-access/flame-dataset-aerial-imagery-pile-burn-detection-using-drones-uavs))
   - Fire Dataset - https://github.com/hayatkhan8660-maker/Fire_Seg_Dataset?tab=readme-ov-file 
@@ -46,7 +47,7 @@ Key results:
 ```
 
 ## Using the Source Code
-
+This section provides instructions on how to use the provided source code, such as searching for new architecture, training the architecture, and evaluating the provided architecture with pretrained model weights.
 ### Setup the repository
 ```bash
 # Clone the repository
@@ -65,25 +66,7 @@ python test_cifar.py
 ```
 Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the ALVIS supercomputer/cluster (https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
 
-If interested, you can also consider our other recently published paper:
-```bibtex
-@article{hassan2025redarts,
-  author={Hassan, Ali and Sjöström, Mårten and Zhang, Tingting and Egiazarian, Karen},
-  journal={IEEE Transactions on Emerging Topics in Computational Intelligence}, 
-  title={REDARTS: Regressive Differentiable Neural Architecture Search for Exploring Optimal Light Field Disparity Estimation Network}, 
-  year={2025},
-  pages={1-12},
-  doi={10.1109/TETCI.2025.3592281}}
-```
-
-To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
-```bash
-REDARTS = Genotype(
-    normal=[('skip_connect', 0), ('sep_conv_3x3', 1), ('skip_connect', 0), ('sep_conv_3x3', 1), ('skip_connect', 1),
-            ('sep_conv_5x5', 3), ('skip_connect', 1), ('sep_conv_3x3', 4)], normal_concat=range(2, 6),
-    reduce=[('avg_pool_3x3', 0), ('avg_pool_3x3', 1), ('sep_conv_3x3', 1), ('skip_connect', 2), ('skip_connect', 2),
-            ('skip_connect', 3), ('sep_conv_3x3', 3), ('dil_conv_5x5', 4)], reduce_concat=range(2, 6))
-```
+If interested, you can also consider our other recently published paper "REDARTS" in IEEE Transactions. To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
 ---
 
 
@@ -126,9 +109,15 @@ If you use CR-DARTS or our code, please cite:
   pages={1-17},
   year={2025}
 }
-```
-Please also cite the P-DARTS code:
-```bibtex
+
+@article{hassan2025redarts,
+  author={Hassan, Ali and Sjöström, Mårten and Zhang, Tingting and Egiazarian, Karen},
+  journal={IEEE Transactions on Emerging Topics in Computational Intelligence}, 
+  title={REDARTS: Regressive Differentiable Neural Architecture Search for Exploring Optimal Light Field Disparity Estimation Network}, 
+  year={2025},
+  pages={1-12},
+  doi={10.1109/TETCI.2025.3592281}}
+
 @inproceedings{chen2019progressive,
   title={Progressive differentiable architecture search: Bridging the depth gap between search and evaluation},
   author={Chen, Xin and Xie, Lingxi and Wu, Jun and Tian, Qi},
