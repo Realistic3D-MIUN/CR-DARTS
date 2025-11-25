@@ -67,7 +67,7 @@ Similarly, to evaluate the proposed architecture on the ImageNet dataset, you ne
 
 If interested, you can also consider our other recently published paper:
 ```bibtex
-@article{hassanredarts,
+@article{hassan2025redarts,
   author={Hassan, Ali and Sjöström, Mårten and Zhang, Tingting and Egiazarian, Karen},
   journal={IEEE Transactions on Emerging Topics in Computational Intelligence}, 
   title={REDARTS: Regressive Differentiable Neural Architecture Search for Exploring Optimal Light Field Disparity Estimation Network}, 
