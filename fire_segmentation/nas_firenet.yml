@@ -1,0 +1,58 @@
+model:
+    arch: nasunet
+data:
+    dataset: flame1
+    train_split: train_aug
+    split: val
+    img_rows: 'same'
+    img_cols: 'same'
+searching:
+    init_channels: 24
+    depth: 5
+    epoch: 100
+    batch_size: 8
+    report_freq: 10
+    n_workers: 0
+    alpha_begin: 10
+    max_patience: 100
+    gpu: True
+    multi_gpus: False
+    sharing_normal: True
+    double_down_channel: False
+    meta_node_num: 3
+    grad_clip: 5
+    train_portion: 0.5
+    model_optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+    arch_optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+    loss:
+        name: 'dice_loss'
+        aux_weight: 0
+    resume:
+training:
+    geno_type: NASUNET_FLAME
+    init_channels: 32
+    depth: 5
+    epoch: 1000
+    batch_size: 8
+    report_freq: 1
+    n_workers: 0
+    multi_gpus: False
+    double_down_channel: False
+    grad_clip: 3
+    max_patience: 100
+    model_optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+    loss:
+        name: 'dice_loss'
+        aux_weight: 0
+    backbone:
+    lr_schedule:
+        name: 'cos'
+        T_max: 100
+        eta_min: 1.0e-5
+    resume: './checkpoint/model_best.pth.tar'
