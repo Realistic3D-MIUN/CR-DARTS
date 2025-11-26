@@ -4,7 +4,7 @@
 
 ---
 
-**Official PyTorch implementation of the paper:**  
+**Official Author implementation of the paper:**  
 **_"CR-DARTS: Channel Redistribution-based Differentiable Architecture Search"_**  
 Accepted for Publication in *IEEE Access, 2025*.
 
@@ -37,7 +37,7 @@ Key results:
 
 ```bash
 🔹 CR-DARTS/
-│   🔹 outputs/           # FireSegUNet Architecture Components
+│   🔹 outputs/           # This directory contains the output of the proposed CR-DARTS algorithms
 │         🔹 crdarts_cifar10_weights.pt    # Weights of the trained CR-DARTS (last epoch) architecture on CIFAR-10 dataset
 │         🔹 crdarts_cifar100_weights.pt   # Weights of the trained CR-DARTS (last epoch) architecture on CIFAR-100 dataset
 │   🔹 requirements.txt  # Python dependencies
@@ -47,7 +47,7 @@ Key results:
 ```
 
 ## Using the Source Code
-This section provides instructions on how to use the provided source code, such as searching for new architecture, training the architecture, and evaluating the provided architecture with pretrained model weights.
+This section provides instructions on how to use the provided source code, such as searching for a new evaluation architecture, training the discovered architecture, and evaluating the fully trained discovered architecture with pretrained model weights.
 ### Setup the repository
 ```bash
 # Clone the repository
@@ -64,9 +64,10 @@ To evaluate the proposed architecture on the CIFAR dataset by loading the weight
 # Evaluate pretrained model
 python test_cifar.py
 ```
+Please note if you change the architecture, do not forget to update the "arch" parser argument, by adding the architecture genotype in the "genotypes.py" file.
 Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the ALVIS supercomputer/cluster (https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
 
-If interested, you can also consider our other recently published paper "REDARTS" in IEEE Transactions. To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
+If interested, you can also consider our recently published paper "REDARTS" in IEEE Transactions 2025. To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
 
 ---
 
