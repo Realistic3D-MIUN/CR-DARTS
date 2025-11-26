@@ -67,6 +67,8 @@ python test_cifar.py
 Please note if you change the architecture, do not forget to update the "arch" parser argument, by adding the architecture genotype in the "genotypes.py" file.
 Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the ALVIS supercomputer/cluster (https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
 
+For the extended evaluation of the fire segmentation task, please have a look at the "Fire_Segmentation" directory, which contains further instructions for setting up and evaluating our proposed architecture.
+
 If interested, you can also consider our recently published paper "REDARTS" in IEEE Transactions 2025. To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
 
 ---
