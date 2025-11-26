@@ -100,9 +100,6 @@ This work was supported by the European Joint Doctoral Programme on Plenoptic Im
 
 ## 📬 Citation
 
-The code is modified and heavily borrowed from P-DARTS: https://github.com/chenxin061/pdarts
-The code they provided is greatly appreciated.
-
 If you use CR-DARTS or our code, please cite:
 
 ```bibtex
@@ -121,7 +118,12 @@ If you use CR-DARTS or our code, please cite:
   year={2025},
   pages={1-12},
   doi={10.1109/TETCI.2025.3592281}}
+```
 
+This code is modified and heavily borrowed from P-DARTS: https://github.com/chenxin061/pdarts
+The code they provided is greatly appreciated.
+
+```bibtex
 @inproceedings{chen2019progressive,
   title={Progressive differentiable architecture search: Bridging the depth gap between search and evaluation},
   author={Chen, Xin and Xie, Lingxi and Wu, Jun and Tian, Qi},
