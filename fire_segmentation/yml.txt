@@ -1,0 +1,66 @@
+model:
+    arch: nasunet
+data:
+    dataset: flame1
+    train_split: train_aug
+    split: val
+    img_rows: 'same'
+    img_cols: 'same'
+searching:
+    init_channels: 16
+    depth: 5
+    epoch: 100
+    batch_size: 16
+    report_freq: 1
+    n_workers: 0
+    alpha_begin: 10
+    max_patience: 40
+    gpu: True
+    multi_gpus: False
+    sharing_normal: True
+    double_down_channel: False
+    meta_node_num: 3
+    grad_clip: 5
+    train_portion: 0.5
+    model_optimizer:
+        name: 'adam'
+        lr: 2.0e-4
+        #weight_decay: 3.0e-4
+    arch_optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        #weight_decay: 5.0e-3
+    loss:
+        name: 'dice_loss'
+        aux_weight: 0
+    resume:
+# Proposed NASUNET_FLAME use init_channels of 32
+# Overwrite the util/prim_ops_set.py with util/prim_ops_set_proposed for NASUNET_FLAME
+
+# SOTA NASUNET use init_channels of 64
+# Overwrite the util/prim_ops_set.py with util/prim_ops_set_sota for NASUNET
+training: #
+    geno_type: NASUNET_FLAME
+    init_channels: 32
+    depth: 5
+    epoch: 500
+    batch_size: 16
+    report_freq: 1
+    n_workers: 0
+    multi_gpus: False
+    double_down_channel: False
+    grad_clip: 5
+    max_patience: 100
+    model_optimizer:
+        name: 'adam'
+        lr: 1.0e-4
+        weight_decay: 0.0
+    loss:
+        name: 'dice_loss'
+        aux_weight: 0
+    backbone:
+    lr_schedule:
+        name: 'cos'
+        T_max: 100
+        eta_min: 1.0e-5
+    resume:

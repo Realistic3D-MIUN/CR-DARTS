@@ -1,0 +1,5 @@
+NASUNET_FLAME = Genotype(
+    down=[('down_dil_conv', 0), ('down_conv', 1), ('down_dep_conv', 1), ('dil_conv', 2), ('dil_conv', 2), ('conv', 3)],
+    down_concat=range(2, 5),
+    up=[('up_dil_conv', 1), ('dep_conv', 0), ('dep_conv', 0), ('dil_conv', 2), ('dil_conv', 2), ('conv', 3)],
+    up_concat=range(2, 5))
