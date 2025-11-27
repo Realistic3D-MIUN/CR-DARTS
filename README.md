@@ -6,7 +6,7 @@
 
 **Official Author implementation of the paper:**  
 **_"CR-DARTS: Channel Redistribution-based Differentiable Architecture Search"_**  
-Accepted for Publication in *IEEE Access, 2025*.
+Published in *IEEE Access, 26 September 2025*. [Paper Link](https://ieeexplore.ieee.org/document/11269759)
 
 ---
 
@@ -21,11 +21,11 @@ We propose CR-DARTS, a multi-stage search framework with an adaptive channel red
 
 We have evaluated it on two computer vision applications:
 - Image Classification
-  - CIFAR-10 & CIFAR-100 dataset - https://docs.pytorch.org/vision/0.9/datasets.html#cifar
-  - Face Blurred ImageNet dataset - https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/?h=dataset#imagenet
-- Fire Segmentation
+  - CIFAR-10 & CIFAR-100 dataset - [Dataset Link](https://docs.pytorch.org/vision/0.9/datasets.html#cifar)
+  - Face Blurred ImageNet dataset - [Dataset Link](https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/?h=dataset#imagenet
+- Fire Segmentation)
   - Fire Luminosity Airborne-based Machine learning Evaluation (FLAME) - [https://dx.doi.org/10.21227/qad6-r683](https://ieee-dataport.org//open-access/flame-dataset-aerial-imagery-pile-burn-detection-using-drones-uavs))
-  - Fire Dataset - https://github.com/hayatkhan8660-maker/Fire_Seg_Dataset?tab=readme-ov-file 
+  - Fire Dataset - [Dataset Link](https://github.com/hayatkhan8660-maker/Fire_Seg_Dataset?tab=readme-ov-file)
 
 Key results:
 - Reduce computational resources requirement by up to 4.3× while addressing the architecture optimization gap.
@@ -120,7 +120,7 @@ If you use CR-DARTS or our code, please cite:
   doi={10.1109/TETCI.2025.3592281}}
 ```
 
-This code is modified and heavily borrowed from P-DARTS: https://github.com/chenxin061/pdarts
+This code is modified and heavily borrowed from [P-DARTS](https://github.com/chenxin061/pdarts)
 The code they provided is greatly appreciated.
 
 ```bibtex
