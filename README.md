@@ -22,9 +22,9 @@ We propose CR-DARTS, a multi-stage search framework with an adaptive channel red
 We have evaluated it on two computer vision applications:
 - Image Classification
   - CIFAR-10 & CIFAR-100 dataset - [Dataset Link](https://docs.pytorch.org/vision/0.9/datasets.html#cifar)
-  - Face Blurred ImageNet dataset - [Dataset Link](https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/?h=dataset#imagenet
-- Fire Segmentation)
-  - Fire Luminosity Airborne-based Machine learning Evaluation (FLAME) - [https://dx.doi.org/10.21227/qad6-r683](https://ieee-dataport.org//open-access/flame-dataset-aerial-imagery-pile-burn-detection-using-drones-uavs))
+  - Face Blurred ImageNet dataset - [Dataset Link](https://www.c3se.chalmers.se/documentation/software/machine_learning/datasets/?h=dataset#imagenet)
+- Fire Segmentation
+  - Fire Luminosity Airborne-based Machine learning Evaluation (FLAME) - [Dataset Link](https://dx.doi.org/10.21227/qad6-r683)
   - Fire Dataset - [Dataset Link](https://github.com/hayatkhan8660-maker/Fire_Seg_Dataset?tab=readme-ov-file)
 
 Key results:
@@ -65,9 +65,9 @@ To evaluate the proposed architecture on the CIFAR dataset by loading the weight
 python test_cifar.py
 ```
 Please note if you change the architecture, do not forget to update the "arch" parser argument, by adding the architecture genotype in the "genotypes.py" file.
-Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the ALVIS supercomputer/cluster (https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
+Similarly, to evaluate the proposed architecture on the ImageNet dataset, you need access to the [ALVIS supercomputer](https://www.c3se.chalmers.se/about/Alvis/). The dataset is also hosted on the same cluster and is available upon signing an agreement.
 
-For the extended evaluation of the fire segmentation task, please have a look at the "Fire_Segmentation" directory, which contains further instructions for setting up and evaluating our proposed architecture.
+For the extended evaluation of the fire segmentation task, please refer to the "fire_segmentation" directory, which contains further instructions for setting up and evaluating our proposed architecture.
 
 If interested, you can also consider our recently published paper "REDARTS" in IEEE Transactions 2025. To compare the results with the REDARTS paper, use the "REDARTS" variable, available in "genotypes.py" file.
 
